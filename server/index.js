@@ -39,16 +39,29 @@ app.get('/api/health', (req, res) => {
 const clientDist = path.join(__dirname, '..', 'client', 'dist');
 if (fs.existsSync(clientDist)) {
   app.use(express.static(clientDist));
-  // Express 5 fallback route
+  // Express 5 SPA fallback route
   app.use((req, res, next) => {
-    // If request is for /api or /uploads, pass along or 404
     if (req.path.startsWith('/api') || req.path.startsWith('/uploads')) {
       return res.status(404).json({ error: 'Endpoint not found' });
     }
     res.sendFile(path.join(clientDist, 'index.html'));
   });
+} else {
+  app.get('/', (req, res) => {
+    res.send(`
+      <!DOCTYPE html>
+      <html>
+        <head><title>Sri Vigneswara Tiffens</title></head>
+        <body style="font-family: sans-serif; text-align: center; padding: 50px;">
+          <h1>🍱 Sri Vigneswara Tiffens</h1>
+          <p>Server is running! Frontend is building or dist folder is being populated.</p>
+          <p><a href="/api/health">Check API Health</a> | <a href="/api/menu">View Menu API</a></p>
+        </body>
+      </html>
+    `);
+  });
 }
 
-app.listen(PORT, () => {
-  console.log(`🍱 Tiffin Order Server is running on http://localhost:${PORT}`);
+app.listen(PORT, '0.0.0.0', () => {
+  console.log(`🍱 Tiffin Order Server is running on port ${PORT}`);
 });

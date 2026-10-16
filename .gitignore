@@ -18,9 +18,6 @@ pnpm-debug.log*
 data/*.db-wal
 data/*.db-shm
 
-# Build output
-client/dist/
-
 # OS / Editor files
 .DS_Store
 Thumbs.db

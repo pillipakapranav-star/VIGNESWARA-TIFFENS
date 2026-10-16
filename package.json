@@ -6,7 +6,7 @@
   "scripts": {
     "start": "node server/index.js",
     "build": "npm run build --prefix client",
-    "render-build": "npm install && cd client && npm install && npm run build && cd ..",
+    "render-build": "npm install && npm install --prefix client --include=dev && npm run build --prefix client",
     "dev": "node server/index.js",
     "dev:client": "npm run dev --prefix client"
   },
