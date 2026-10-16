@@ -1,5 +1,7 @@
 # 🍱 Sri Vigneswara Tiffens - Online Ordering App
 
+> *HOT SPOT AT MORNING AND EVENING* — Authentic South Indian Breakfast & Daily Tiffens.
+
 A modern, mobile-friendly online ordering web application for **Sri Vigneswara Tiffens**, featuring authentic South Indian breakfast and daily tiffens (Idly, Crispy Dosas, Ghee Karam Dosa, Medu Vada, Poori, Pongali, and more). Built with Node.js, Express, SQLite, and a mobile-optimized React client.
 
 ---
