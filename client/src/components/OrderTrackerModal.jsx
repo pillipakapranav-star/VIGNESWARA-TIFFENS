@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { Search, X, MessageCircle, Clock, CheckCircle2, Truck, AlertCircle, ChefHat, PackageCheck } from 'lucide-react';
+import { X, MessageCircle, AlertCircle } from 'lucide-react';
 import { fetchOrderDetails } from '../api';
 
 const STATUS_STEPS = [
@@ -15,18 +15,10 @@ export default function OrderTrackerModal({
   onClose,
   initialOrderNumber = ''
 }) {
-  if (!isOpen) return null;
-
   const [searchCode, setSearchCode] = useState(initialOrderNumber);
   const [orderData, setOrderData] = useState(null);
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState('');
-
-  useEffect(() => {
-    if (initialOrderNumber) {
-      handleLookup(initialOrderNumber);
-    }
-  }, [initialOrderNumber]);
 
   const handleLookup = async (codeToSearch) => {
     const code = (codeToSearch || searchCode).trim();
@@ -47,6 +39,15 @@ export default function OrderTrackerModal({
       setLoading(false);
     }
   };
+
+  useEffect(() => {
+    if (isOpen && initialOrderNumber) {
+      setSearchCode(initialOrderNumber);
+      handleLookup(initialOrderNumber);
+    }
+  }, [isOpen, initialOrderNumber]);
+
+  if (!isOpen) return null;
 
   const currentStatus = orderData?.order?.status || 'New';
   const currentStepIndex = STATUS_STEPS.findIndex(s => s.key === currentStatus);

@@ -1,5 +1,5 @@
 import React from 'react';
-import { Sparkles, Clock, Truck, ShieldCheck, HeartHandshake, MapPin } from 'lucide-react';
+import { Sparkles, Clock, Truck, ShieldCheck, MapPin } from 'lucide-react';
 
 export default function Hero({ settings }) {
   const currency = settings?.currency_symbol || '₹';

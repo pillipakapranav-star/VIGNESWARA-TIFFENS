@@ -1,5 +1,5 @@
 import React from 'react';
-import { ShoppingBag, Search, ShieldCheck, Clock, Phone, MapPin } from 'lucide-react';
+import { ShoppingBag, Search, ShieldCheck, MapPin } from 'lucide-react';
 
 export default function Header({
   settings,

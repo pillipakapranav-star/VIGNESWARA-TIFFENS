@@ -1,29 +1,31 @@
 import React, { useEffect } from 'react';
 import confetti from 'canvas-confetti';
-import { CheckCircle2, MessageCircle, Copy, ArrowRight, Share2, Phone, Calendar, Clock, MapPin, X } from 'lucide-react';
+import { CheckCircle2, MessageCircle, Copy, X } from 'lucide-react';
 
 export default function OrderConfirmationModal({
   orderData,
   onClose,
   onOpenTracker
 }) {
+  // Run confetti explosion on modal open
+  useEffect(() => {
+    if (orderData) {
+      try {
+        confetti({
+          particleCount: 80,
+          spread: 70,
+          origin: { y: 0.6 }
+        });
+      } catch (e) {
+        // safe fallback if canvas-confetti fails
+      }
+    }
+  }, [orderData]);
+
   if (!orderData) return null;
 
   const { order, whatsappUrl, whatsappNumber } = orderData;
   const currency = '₹';
-
-  // Run confetti explosion on modal open
-  useEffect(() => {
-    try {
-      confetti({
-        particleCount: 80,
-        spread: 70,
-        origin: { y: 0.6 }
-      });
-    } catch (e) {
-      // safe fallback if canvas-confetti fails
-    }
-  }, []);
 
   const handleCopyOrderNumber = () => {
     navigator.clipboard.writeText(order.order_number);

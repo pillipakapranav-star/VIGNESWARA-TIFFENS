@@ -8,7 +8,7 @@ import OrderConfirmationModal from './components/OrderConfirmationModal';
 import OrderTrackerModal from './components/OrderTrackerModal';
 import AdminDashboard from './components/AdminDashboard';
 import { fetchSettings, fetchMenu } from './api';
-import { Search, Sparkles, ShoppingBag, ArrowRight, Phone, MessageCircle, Heart, ShieldCheck, MapPin } from 'lucide-react';
+import { Search, ArrowRight, Phone, MessageCircle, ShieldCheck, MapPin } from 'lucide-react';
 
 export default function App() {
   const [settings, setSettings] = useState(null);

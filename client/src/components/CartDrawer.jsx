@@ -1,5 +1,5 @@
-import React, { useState, useEffect } from 'react';
-import { X, Trash2, Plus, Minus, AlertCircle, CheckCircle2, Copy, QrCode, ArrowRight, ShieldCheck, MapPin, Calendar, Clock, MessageSquare } from 'lucide-react';
+import React, { useState } from 'react';
+import { X, Trash2, Plus, Minus, AlertCircle, CheckCircle2, Copy, ArrowRight, MapPin } from 'lucide-react';
 
 export default function CartDrawer({
   isOpen,
@@ -10,8 +10,6 @@ export default function CartDrawer({
   onClearCart,
   onOrderSuccess
 }) {
-  if (!isOpen) return null;
-
   const currency = settings?.currency_symbol || '₹';
   const minOrder = settings?.min_order_amount || 0;
   const freeAbove = settings?.free_delivery_above || 0;
@@ -141,6 +139,8 @@ export default function CartDrawer({
     : '';
 
   const qrImageUrl = settings?.upi_qr_url || (upiUri ? `https://api.qrserver.com/v1/create-qr-code/?size=180x180&data=${encodeURIComponent(upiUri)}` : '');
+
+  if (!isOpen) return null;
 
   return (
     <div className="modal-backdrop" onClick={onClose}>

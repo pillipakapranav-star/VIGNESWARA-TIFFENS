@@ -1,5 +1,5 @@
 import React from 'react';
-import { Plus, Minus, Flame, Utensils } from 'lucide-react';
+import { Plus, Minus } from 'lucide-react';
 
 const FALLBACK_IMAGE = 'https://images.unsplash.com/photo-1546833999-b9f581a1996d?auto=format&fit=crop&w=600&q=80';
 
