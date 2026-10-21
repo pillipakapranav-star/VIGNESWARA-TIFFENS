@@ -1,6 +1,6 @@
 services:
   - type: web
-    name: vigneshwara-tiffens
+    name: vigneswara-tiffens
     runtime: node
     plan: free
     buildCommand: npm run render-build
